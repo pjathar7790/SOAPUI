@@ -1,0 +1,17 @@
+<data>
+    <record>
+		<name>prath</name>
+		<a>
+			<name>John Doe</name>
+			<email>john.doe@example.com</email>
+			<age>30</age>
+		</a>
+	</record>
+    <record>
+	
+        <name>Jane Smith</name>
+        <email>jane.smith@example.com</email>
+        <age>25</age>
+    
+	</record>
+</data>

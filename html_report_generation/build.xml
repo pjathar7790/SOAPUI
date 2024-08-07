@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GenerateHTMLReport" default="generate-report">
+
+    <!-- Define properties -->
+    <property name="report.xml" value="modified_result.xml"/>
+    <property name="transform.xsl" value="transform.xsl"/>
+    <property name="output.dir" value="output"/>
+    <property name="output.html" value="${output.dir}/report.html"/>
+
+    <!-- Target to clean the output directory -->
+    <target name="clean">
+        <delete dir="${output.dir}"/>
+    </target>
+
+    <!-- Target to create the output directory -->
+    <target name="init">
+        <mkdir dir="${output.dir}"/>
+    </target>
+
+    <!-- Target to transform XML to HTML using XSL -->
+    <target name="generate-report" depends="clean,init">
+        <xslt in="${report.xml}" out="${output.html}" style="${transform.xsl}">
+            <param name="title" expression="'Test Report'"/>
+        </xslt>
+    </target>
+
+</project>

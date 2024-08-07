@@ -1,0 +1,99 @@
+this command will generate xml report in folder "C:\SOAP_UI_Project\test":
+
+
+testrunner.bat -s"TestSuite1" -r -j -f"C:\SOAP_UI_Project\test" "C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProjects\New-Test-Project-soapui-project.xml"
+
+
+
+testrunner.bat -s"TestSuite1" -r -j -f"C:\SOAP_UI_Project\test" "C:\SOAP_UI_Project\TC-Login-soapui-project.xml"
+
+
+
+download groovy installer:  https://groovy.jfrog.io/ui/native/dist-release-local/groovy-windows-installer/groovy-5.0.0-alpha-9/
+
+groovy modify-junit-report.groovy
+
+
+#####################
+
+@echo off
+
+REM Run the test suite and generate JUnit XML report
+testrunner.bat -s"TestSuite1" -r -j -f"C:\SOAP_UI_Project\test" "C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProjects\New-Test-Project-soapui-project.xml"
+
+REM Wait for the report to be generated (adjust sleep time if necessary)
+timeout /t 10 /nobreak
+
+REM Run the Groovy script to modify the JUnit XML report
+groovy modify-junit-report.groovy
+
+
+
+######################
+
+
+https://stackoverflow.com/questions/4922867/what-is-the-junit-xml-format-specification-that-hudson-supports
+
+
+
+
+######################################################################
+
+SoapUI results, you usually use the junit-frames.xsl or junit-noframes.xsl stylesheet.
+files are located in the ant installation directory, typically under lib or etc.
+
+
+######################################################################
+
+Latest Nots are as below
+
+######################################################################
+
+use .xsl file template :   C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProjects\transform.xsl
+result .xml file should be like :   C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProjects\modified_result.xml
+build file should be like this: C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProjects\build.xml
+
+
+######################################################################
+
+To generate such an XML file, you will need to modify your Groovy scripts in SoapUI to collect and write the test step details, including their execution time, into the XML report. Here's an example Groovy script snippet that demonstrates how to capture the execution time of each test step and format it in the desired XML structure:
+
+
+
+
+
+import groovy.xml.MarkupBuilder
+
+def testSuite = context.testCase.testSuite
+def xmlFile = new File("path/to/your/result.xml")
+def writer = new StringWriter()
+def xml = new MarkupBuilder(writer)
+
+xml.testsuites {
+  testsuite(errors: testSuite.errorCount, failures: testSuite.failCount, id: 0, name: testSuite.name, package: "New SOAPUI Test Project", tests: testSuite.testCaseCount, time: testSuite.timeTaken) {
+    properties {
+      System.properties.each { key, value ->
+        property(name: key, value: value)
+      }
+    }
+    testSuite.testCases.each { testCase ->
+      testcase(name: testCase.name, classname: "New SOAPUI Test Project", time: testCase.timeTaken) {
+        testCase.testSteps.each { step ->
+          teststep(name: step.name, time: step.timeTaken)
+        }
+        if (testCase.status.toString() == "FAILED") {
+          failure(message: testCase.failMessages.join(', ')) {
+            testCase.errors.each { error ->
+              mkp.yield(error.getMessage())
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+xmlFile.write(writer.toString())
+
+
+######################################################################

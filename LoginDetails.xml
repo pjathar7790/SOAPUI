@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Environment>
+   <NodeDetails>
+      <TopTagDetails>tcbusrRuD_D_Zug_ME_Designer</TopTagDetails>
+      <UserID>tcbusrRuD</UserID>
+      <UserPassword>tcbusrRuDtcbusrRuD_Tc13</UserPassword>
+      <Group>D_Zug.BT.Siemens</Group>
+      <Role>ME Designer</Role>
+      <ClientApplication>?</ClientApplication>
+      <Volume>?</Volume>
+      <LocalVolume>?</LocalVolume>
+      <ActiveChange>?</ActiveChange>
+      <LocationCode>?</LocationCode>
+   </NodeDetails>
+   <NodeDetails>
+      <TopTagDetails>tcbusrRuD_D_Zug_Product_Configuration_Manager</TopTagDetails>
+      <UserID>tcbusrRuD</UserID>
+      <UserPassword>tcbusrRuDtcbusrRuD_Tc13</UserPassword>
+      <Group>D_Zug.BT.Siemens</Group>
+      <Role>Product Configuration Manager</Role>
+      <ClientApplication>?</ClientApplication>
+      <Volume>?</Volume>
+      <LocalVolume>?</LocalVolume>
+      <ActiveChange>?</ActiveChange>
+      <LocationCode>?</LocationCode>
+   </NodeDetails>
+   <NodeDetails>
+      <TopTagDetails>interfaceuser_WebServicesTestUser</TopTagDetails>
+      <UserID>interfaceuser</UserID>
+      <UserPassword>interfaceuser8QBP)??</UserPassword>
+      <Group>?</Group>
+      <Role></Role>
+      <ClientApplication>?</ClientApplication>
+      <Volume>?</Volume>
+      <LocalVolume>?</LocalVolume>
+      <ActiveChange>?</ActiveChange>
+      <LocationCode>?</LocationCode>
+   </NodeDetails>
+</Environment>

@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="22a7dd99-42be-407d-a9fe-629e342d591b" activeEnvironment="Default" name="TC_Login" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c0b0c0dd-77b9-4a0e-8fc1-6f39f635c805" wsaVersion="NONE" name="SOAWebService_LoginUtilSOAP12Binding" type="wsdl" bindingName="{http://login.webservice.bt.com/}SOAWebService_LoginUtilSOAP12Binding" soapVersion="1_2" anonymous="optional" definition="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Login?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:9080/btservice/SOAWebService_Login</con:endpoint></con:endpoints><con:operation id="8b704685-d0d2-422f-977a-2532e8b0d781" isOneWay="false" action="urn:SOALogin" name="SOALogin" bindingOperationName="SOALogin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2157d3d7-09e6-446e-b3bf-994fc5ddf006" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/btservice/SOAWebService_Login</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:log="http://login.webservice.bt.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <log:SOALogin>\r
+         <!--Optional:-->\r
+         <log:SSO_URL>?</log:SSO_URL>\r
+         <!--Optional:-->\r
+         <log:SSO_APP_ID>?</log:SSO_APP_ID>\r
+         <!--Optional:-->\r
+         <log:TC_USER>?</log:TC_USER>\r
+         <!--Optional:-->\r
+         <log:TC_USER_PASSWD>?</log:TC_USER_PASSWD>\r
+         <!--Optional:-->\r
+         <log:TC_SSO_TOKEN>?</log:TC_SSO_TOKEN>\r
+         <!--Optional:-->\r
+         <log:SOA_URL>?</log:SOA_URL>\r
+      </log:SOALogin>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:SOALogin"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0a86b7ee-fa83-4649-9b65-ac22f73791bd" wsaVersion="NONE" name="SOAWebService_LoginUtilSOAP11Binding" type="wsdl" bindingName="{http://login.webservice.bt.com/}SOAWebService_LoginUtilSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Login?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Login?wsdl"><con:part><con:url>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Login?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-.-->
+<wsdl:definitions targetNamespace="http://login.webservice.bt.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://login.webservice.bt.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://login.webservice.bt.com/" xmlns:ns="http://login.webservice.bt.com/">
+      <xs:element name="SOALogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SSO_URL" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SSO_APP_ID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_USER" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_USER_PASSWD" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_SSO_TOKEN" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SOA_URL" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SOALoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginFailureFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SOAServiceFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SOALoginRequest">
+    <wsdl:part name="parameters" element="ns0:SOALogin"/>
+  </wsdl:message>
+  <wsdl:message name="SOALoginResponse">
+    <wsdl:part name="parameters" element="ns0:SOALoginResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LoginFailureResponse">
+    <wsdl:part name="Loginparameters" element="ns0:LoginFailureFault"/>
+  </wsdl:message>
+  <wsdl:message name="SOAServiceResponse">
+    <wsdl:part name="SOAparameters" element="ns0:SOAServiceFault"/>
+  </wsdl:message>
+  <wsdl:portType name="SOAWebService_LoginUtilPortType">
+    <wsdl:operation name="SOALogin">
+      <wsdl:input message="ns0:SOALoginRequest" wsaw:Action="urn:SOALogin"/>
+      <wsdl:output message="ns0:SOALoginResponse" wsaw:Action="urn:SOALoginResponse"/>
+      <wsdl:fault message="ns0:LoginFailureResponse" name="LoginFailureFault"/>
+      <wsdl:fault message="ns0:SOAServiceResponse" name="SOAServiceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAWebService_LoginUtilSOAP11Binding" type="ns0:SOAWebService_LoginUtilPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="SOALogin">
+      <soap:operation soapAction="urn:SOALogin" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="LoginFailureFault">
+        <soap:fault name="LoginFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAWebService_LoginUtilSOAP12Binding" type="ns0:SOAWebService_LoginUtilPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="SOALogin">
+      <soap12:operation soapAction="urn:SOALogin" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="LoginFailureFault">
+        <soap:fault name="LoginFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAWebService_LoginUtilHttpBinding" type="ns0:SOAWebService_LoginUtilPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="SOALogin">
+      <http:operation location="SOAWebService_LoginUtil/SOALogin"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="SOALogin"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="SOALogin"/>
+      </wsdl:output>
+      <wsdl:fault name="LoginFailureFault">
+        <soap:fault name="LoginFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAWebService_Login">
+    <wsdl:port name="SOAWebService_LoginUtilSOAP11port_http" binding="ns0:SOAWebService_LoginUtilSOAP11Binding">
+      <soap:address location="http://tcbplb.gplm.siemens.com:42117/tcbp10iws/SOAWebService_Login"/>
+    </wsdl:port>
+    <wsdl:port name="SOAWebService_LoginUtilSOAP12port_http" binding="ns0:SOAWebService_LoginUtilSOAP12Binding">
+      <soap12:address location="http://localhost:9080/btservice/SOAWebService_Login"/>
+    </wsdl:port>
+    <wsdl:port name="SOAWebService_LoginUtilHttpport" binding="ns0:SOAWebService_LoginUtilHttpBinding">
+      <http:address location="http://localhost:9080/btservice/SOAWebService_Login"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://tcbplb.gplm.siemens.com:42117/tcbp10iws/SOAWebService_Login</con:endpoint></con:endpoints><con:operation id="b4bd56a7-1a6d-438e-90e6-fcac6da27cff" isOneWay="false" action="urn:SOALogin" name="SOALogin" bindingOperationName="SOALogin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="46318366-af07-4fa4-9c70-9e0a85ed0202" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://login.webservice.bt.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:SOALogin>
+         <!--Optional:-->
+         <log:SSO_URL></log:SSO_URL>
+         <!--Optional:-->
+         <log:SSO_APP_ID></log:SSO_APP_ID>
+         <!--Optional:-->
+         <log:TC_USER>tcbusrRuD</log:TC_USER>
+         <!--Optional:-->
+         <log:TC_USER_PASSWD>tcbusrRuDtcbusrRuD_Tc13</log:TC_USER_PASSWD>
+         <!--Optional:-->
+         <log:TC_SSO_TOKEN></log:TC_SSO_TOKEN>
+         <!--Optional:-->
+         <log:SOA_URL>https://tcbqlb.gplm.siemens.com/tcbq10if</log:SOA_URL>
+      </log:SOALogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:SOALogin"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="66980979-02e7-42fa-9770-c54814cb4db7" wsaVersion="NONE" name="SOAWebService_LogoutUtilSOAP12Binding" type="wsdl" bindingName="{http://logout.webservice.bt.com/}SOAWebService_LogoutUtilSOAP12Binding" soapVersion="1_2" anonymous="optional" definition="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:9080/btservice/SOAWebService_Logout</con:endpoint></con:endpoints><con:operation id="23676a01-0d42-4bec-ab52-2b201ebfcd87" isOneWay="false" action="urn:SOALogout" name="SOALogout" bindingOperationName="SOALogout" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f8fb3c2e-5310-4b8a-8de1-ea6abdd32015" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/btservice/SOAWebService_Logout</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:log="http://logout.webservice.bt.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <log:SOALogout>\r
+         <!--Optional:-->\r
+         <log:SSO_URL>?</log:SSO_URL>\r
+         <!--Optional:-->\r
+         <log:SSO_APP_ID>?</log:SSO_APP_ID>\r
+         <!--Optional:-->\r
+         <log:TC_USER>?</log:TC_USER>\r
+         <!--Optional:-->\r
+         <log:TC_USER_PASSWD>?</log:TC_USER_PASSWD>\r
+         <!--Optional:-->\r
+         <log:TC_SSO_TOKEN>?</log:TC_SSO_TOKEN>\r
+         <!--Optional:-->\r
+         <log:TC_SESSION_DESCRIMINATOR>?</log:TC_SESSION_DESCRIMINATOR>\r
+         <!--Optional:-->\r
+         <log:SOA_URL>?</log:SOA_URL>\r
+      </log:SOALogout>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:SOALogout"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5b8fb494-af75-40bf-bb06-528c4cf3792d" wsaVersion="NONE" name="SOAWebService_LogoutUtilSOAP11Binding" type="wsdl" bindingName="{http://logout.webservice.bt.com/}SOAWebService_LogoutUtilSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout?wsdl"><con:part><con:url>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-.-->
+<wsdl:definitions targetNamespace="http://logout.webservice.bt.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://logout.webservice.bt.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://logout.webservice.bt.com/" xmlns:ns="http://logout.webservice.bt.com/">
+      <xs:element name="SOALogout">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SSO_URL" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SSO_APP_ID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_USER" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_USER_PASSWD" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_SSO_TOKEN" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TC_SESSION_DESCRIMINATOR" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SOA_URL" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SOALogoutResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LogoutFailureFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SOAServiceFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SOALogoutRequest">
+    <wsdl:part name="parameters" element="ns0:SOALogout"/>
+  </wsdl:message>
+  <wsdl:message name="SOALogoutResponse">
+    <wsdl:part name="parameters" element="ns0:SOALogoutResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LogoutFailureResponse">
+    <wsdl:part name="Logoutparameters" element="ns0:LogoutFailureFault"/>
+  </wsdl:message>
+  <wsdl:message name="SOAServiceResponse">
+    <wsdl:part name="SOAparameters" element="ns0:SOAServiceFault"/>
+  </wsdl:message>
+  <wsdl:portType name="SOAWebService_LogoutUtilPortType">
+    <wsdl:operation name="SOALogout">
+      <wsdl:input message="ns0:SOALogoutRequest" wsaw:Action="urn:SOALogout"/>
+      <wsdl:output message="ns0:SOALogoutResponse" wsaw:Action="urn:SOALogoutResponse"/>
+      <wsdl:fault message="ns0:LogoutFailureResponse" name="LogoutFailureFault"/>
+      <wsdl:fault message="ns0:SOAServiceResponse" name="SOAServiceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAWebService_LogoutUtilSOAP11Binding" type="ns0:SOAWebService_LogoutUtilPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="SOALogout">
+      <soap:operation soapAction="urn:SOALogout" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="LogoutFailureFault">
+        <soap:fault name="LogoutFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAWebService_LogoutUtilSOAP12Binding" type="ns0:SOAWebService_LogoutUtilPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="SOALogout">
+      <soap12:operation soapAction="urn:SOALogout" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="LogoutFailureFault">
+        <soap:fault name="LogoutFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAWebService_LogoutUtilHttpBinding" type="ns0:SOAWebService_LogoutUtilPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="SOALogout">
+      <http:operation location="SOAWebService_LogoutUtil/SOALogout"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="SOALogout"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="SOALogout"/>
+      </wsdl:output>
+      <wsdl:fault name="LogoutFailureFault">
+        <soap:fault name="LogoutFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SOAServiceFault">
+        <soap:fault name="SOAServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAWebService_Logout">
+    <wsdl:port name="SOAWebService_LogoutUtilSOAP11port_http" binding="ns0:SOAWebService_LogoutUtilSOAP11Binding">
+      <soap:address location="http://tcbplb.gplm.siemens.com:42117/tcbp10iws/SOAWebService_Logout"/>
+    </wsdl:port>
+    <wsdl:port name="SOAWebService_LogoutUtilSOAP12port_http" binding="ns0:SOAWebService_LogoutUtilSOAP12Binding">
+      <soap12:address location="http://localhost:9080/btservice/SOAWebService_Logout"/>
+    </wsdl:port>
+    <wsdl:port name="SOAWebService_LogoutUtilHttpport" binding="ns0:SOAWebService_LogoutUtilHttpBinding">
+      <http:address location="http://localhost:9080/btservice/SOAWebService_Logout"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://tcbplb.gplm.siemens.com:42117/tcbp10iws/SOAWebService_Logout</con:endpoint></con:endpoints><con:operation id="1696652e-7a4b-4afa-b1a1-7c5b55472134" isOneWay="false" action="urn:SOALogout" name="SOALogout" bindingOperationName="SOALogout" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9defd1e4-9462-436e-878c-1cd5a7cb4a26" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://logout.webservice.bt.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <log:SOALogout>\r
+         <!--Optional:-->\r
+         <log:SSO_URL>?</log:SSO_URL>\r
+         <!--Optional:-->\r
+         <log:SSO_APP_ID>?</log:SSO_APP_ID>\r
+         <!--Optional:-->\r
+         <log:TC_USER>tcbusrRuD</log:TC_USER>\r
+         <!--Optional:-->\r
+         <log:TC_USER_PASSWD>tcbusrRuDtcbusrRuD_Tc13</log:TC_USER_PASSWD>\r
+         <!--Optional:-->\r
+         <log:TC_SSO_TOKEN>?</log:TC_SSO_TOKEN>\r
+         <!--Optional:-->\r
+         <log:TC_SESSION_DESCRIMINATOR>?</log:TC_SESSION_DESCRIMINATOR>\r
+         <!--Optional:-->\r
+         <log:SOA_URL>https://tcbqlb.gplm.siemens.com/tcbq10if</log:SOA_URL>\r
+      </log:SOALogout>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:SOALogout"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="caea721d-34b0-4348-9f02-7b3259f3e795" name="TestSuite1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ddc2cf58-57b2-4bb4-a0a5-761653715137" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Prerequisite" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Prerequisite" id="2e6bef09-f4a0-4e30-992b-7502be203fb7"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.TestSuite
+//import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+// Get the project level test suite by name
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+def objXmlOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("xmlOperations")
+objXmlOperations.run(testRunner, context)
+
+def objTimeDateOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("timeDateOperations")
+objTimeDateOperations.run(testRunner, context)
+
+def objFolderOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("fileFolderOperations")
+objFolderOperations.run(testRunner, context)
+
+def objcsvFileOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("csvFileOperations")
+objcsvFileOperations.run(testRunner, context)
+
+//get project folder path
+def projectPath = new com.eviware.soapui.support.GroovyUtils(context).projectPath
+//get xml node values
+def sUserID = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\LoginDetails.xml", "interfaceuser_WebServicesTestUser", "UserID")
+def sUserPassword = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\LoginDetails.xml", "interfaceuser_WebServicesTestUser", "UserPassword")
+def sURL = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\URLDetails.xml", "Q", "URL")
+
+//set xml node values
+testRunner.testCase.testSuite.setPropertyValue("UserName", sUserID)
+testRunner.testCase.testSuite.setPropertyValue("UserPassword", sUserPassword)
+testRunner.testCase.testSuite.setPropertyValue("URL", sURL)
+//-----------------------------------------------------------------------------------------------------------------------------------
+def exeDateTime = context.timeDateOperations.getDateFormat("dd-MMM-yyyy HH_mm")
+log.info exeDateTime
+
+//def sFolderPath = projectPath
+def subFoldername = "ExecutionReport_"+exeDateTime
+def sReportFolderPath = context.fileFolderOperations.createFolder(projectPath, subFoldername)
+log.info sReportFolderPath
+
+//save report folder path for future
+testRunner.testCase.testSuite.setPropertyValue("ReportFolderPath", projectPath+"/"+subFoldername)
+context.csvFileOperations.createCSVFile(projectPath+"/"+subFoldername, "ExecutionReport")
+
+testRunner.testCase.testSuite.setPropertyValue("CSVFilePath", projectPath+"/"+subFoldername+"/ExecutionReport")
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+</script></con:config></con:testStep><con:setupScript/><con:tearDownScript/><con:properties/></con:testCase><con:testCase id="45eef288-a047-44e2-a5c4-2acad7778b69" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_Login" searchProperties="true"><con:settings/><con:testStep type="groovy" name="TC_Login" id="45edb7eb-cb6c-46da-bb77-f09f75b3feed"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.TestSuite
+import com.eviware.soapui.support.XmlHolder
+// Get the project level test suite by name
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+def objRequestResponseOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("requestResponseOperations")
+objRequestResponseOperations.run(testRunner, context)
+
+def objFolderOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("fileFolderOperations")
+objFolderOperations.run(testRunner, context)
+
+def objcsvFileOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("csvFileOperations")
+objcsvFileOperations.run(testRunner, context)
+
+def testname = context.getCurrentStep().getName()
+
+def ReportFolderPath = testRunner.testCase.testSuite.getPropertyValue("ReportFolderPath")
+def CSVReportFilePath = testRunner.testCase.testSuite.getPropertyValue("CSVFilePath")
+//**********************************************************************************************
+def soapRequestTestSuite = project.getTestSuiteByName("SoapRequests")
+def soapRequestTestStep = soapRequestTestSuite.getTestCaseByName("TC_Login").getTestStepByName("TC_Login")
+def request = context.requestResponseOperations.getRequest(soapRequestTestStep)
+//**********************************************************************************************
+//log.info request
+context.fileFolderOperations.createTextFile(ReportFolderPath, testname+"_Request", request)
+
+def Username = testRunner.testCase.testSuite.getPropertyValue("UserName")
+def UserPassword = testRunner.testCase.testSuite.getPropertyValue("UserPassword")
+def URL = testRunner.testCase.testSuite.getPropertyValue("URL")
+
+def NewRequestXML = context.requestResponseOperations.updateXMLNodeValue(request, '//log:SOALogin/log:TC_USER~//log:SOALogin/log:TC_USER_PASSWD~//log:SOALogin/log:SOA_URL', Username+"~"+UserPassword+"~"+URL)
+//log.info NewRequestXML
+
+soapRequestTestStep.getTestRequest().setRequestContent(NewRequestXML)
+soapRequestTestStep.run(testRunner, context)
+
+def response = context.requestResponseOperations.getResponse(soapRequestTestStep)
+
+context.fileFolderOperations.createTextFile(ReportFolderPath, testname+"_Response", response)
+
+def nodeValue = context.requestResponseOperations.getXMLNodeValue(response, "//*:return")
+log.info nodeValue
+
+assert nodeValue != null
+
+//def objAssertion = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("assertions")
+//objAssertion.run(testRunner, context)
+//
+//contex	t.assertions.assertNotNull(nodeValue)
+
+
+//context.csvFileOperations.updateExecutionResult(CSVReportFilePath, response)
+
+//def responsexml = new XmlHolder(response)
+
+//def messagevalue = responsexml.getNodeValue("//*:return")
+//log.info messagevalue
+
+//def sXML = preXMLContent.getXml()
+//def req = testRunner.testCase.testSteps["SOALogin"]
+//def contextAddReqTest = new WsdlTestRunContext(req)
+//
+//req.run(testRunner, contextAddReqTest)
+//
+//def response = testRunner.testCase.testSteps["SOALogin"].getPropertyValue("Response")
+////def responsexml = new XmlHolder(response)
+//log.info response
+
+
+//import com.eviware.soapui.support.XmlHolder
+//import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+//
+
+//def Username = testRunner.testCase.getPropertyValue("UserName")
+//def UserPassword = testRunner.testCase.getPropertyValue("UserPassword")
+//def URL = testRunner.testCase.getPropertyValue("URL")
+//
+
+//def xmlRequest = testRunner.testCase.testSteps["SOALogin"].getPropertyValue("Request")
+//def preXMLContent = new XmlHolder(xmlRequest)
+//
+//preXMLContent.setNodeValue('//log:SOALogin/log:TC_USER', Username)
+//preXMLContent.setNodeValue("//log:SOALogin/log:TC_USER_PASSWD", UserPassword)
+//preXMLContent.setNodeValue("//log:SOALogin/log:SOA_URL", URL)
+//
+//
+//def sXML = preXMLContent.getXml()
+//def req = testRunner.testCase.testSteps["SOALogin"]
+//def contextAddReqTest = new WsdlTestRunContext(req)
+//
+//req.run(testRunner, contextAddReqTest)
+//
+//def response = testRunner.testCase.testSteps["SOALogin"].getPropertyValue("Response")
+//def responsexml = new XmlHolder(response)
+//
+//def messagevalue = responsexml.getNodeValue("//*:message")
+//
+//assert messagevalue == null
+//log.info messagevalue</script></con:config></con:testStep><con:setupScript>testRunner.testCase.testSuite.setPropertyValue("ResponseTime", "NaN")
+testRunner.testCase.testSuite.setPropertyValue("ResponseContent", "NaN")</con:setupScript><con:tearDownScript>//// Code to execute the GenerateCSVReport test step
+//testRunner.testCase.testSuite.project.testSuites["Libraries"].testCases["Reporting_Utility"].
+//testSteps["GenerateCSVReport"].run(testRunner, context);
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+def CSVReportFilePath = testRunner.testCase.testSuite.getPropertyValue("CSVFilePath")
+def objCSV = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("csvFileOperations")
+context.csvFileOperations.updatestepresult(CSVReportFilePath)
+</con:tearDownScript><con:properties/></con:testCase><con:testCase id="b0ebcaf2-0227-4580-b16c-01cd0e1b3158" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_Logout" searchProperties="true"><con:settings/><con:testStep type="groovy" name="TC_Logout" id="127faeaa-22e1-4661-90ff-5371252a6c95"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.TestSuite
+import com.eviware.soapui.support.XmlHolder
+// Get the project level test suite by name
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+def objRequestResponseOperation = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("requestResponseOperations")
+objRequestResponseOperation.run(testRunner, context)
+
+def objFolderOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("fileFolderOperations")
+objFolderOperations.run(testRunner, context)
+
+def objcsvFileOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("csvFileOperations")
+objcsvFileOperations.run(testRunner, context)
+
+def testname = context.getCurrentStep().getName()
+
+def ReportFolderPath = testRunner.testCase.testSuite.getPropertyValue("ReportFolderPath")
+def CSVReportFilePath = testRunner.testCase.testSuite.getPropertyValue("CSVFilePath")
+
+//**********************************************************************************************
+def soapRequestTestSuite = project.getTestSuiteByName("SoapRequests")
+def soapRequestTestStep = soapRequestTestSuite.getTestCaseByName("TC_Logout").getTestStepByName("TC_Logout")
+//**********************************************************************************************
+def request = context.requestResponseOperations.getRequest(soapRequestTestStep)
+context.fileFolderOperations.createTextFile(ReportFolderPath, testname+"_Request", request)
+//log.info request
+
+def Username = testRunner.testCase.testSuite.getPropertyValue("UserName")
+def UserPassword = testRunner.testCase.testSuite.getPropertyValue("UserPassword")
+def URL = testRunner.testCase.testSuite.getPropertyValue("URL")
+
+def NewRequestXML = context.requestResponseOperations.updateXMLNodeValue(request, '//log:SOALogout/log:TC_USER~//log:SOALogout/log:TC_USER_PASSWD~//log:SOALogout/log:SOA_URL', Username+"~"+UserPassword+"~"+URL)
+log.info NewRequestXML
+
+soapRequestTestStep.getTestRequest().setRequestContent(NewRequestXML)
+soapRequestTestStep.run(testRunner, context)
+
+def response = context.requestResponseOperations.getResponse(soapRequestTestStep)
+context.fileFolderOperations.createTextFile(ReportFolderPath, testname+"_Response", response)
+//log.info response
+
+def nodeValue = context.requestResponseOperations.getXMLNodeValue(response, "//*:return")
+log.info nodeValue
+
+assert nodeValue != null
+//context.csvFileOperations.updateExecutionResult(CSVReportFilePath, response)
+
+
+
+</script></con:config></con:testStep><con:setupScript>testRunner.testCase.testSuite.setPropertyValue("ResponseTime", "NaN")
+testRunner.testCase.testSuite.setPropertyValue("ResponseContent", "NaN")</con:setupScript><con:tearDownScript>//// Code to execute the GenerateCSVReport test step
+//testRunner.testCase.testSuite.project.testSuites["Libraries"].testCases["Reporting_Utility"].
+//testSteps["GenerateCSVReport"].run(testRunner, context);
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+def CSVReportFilePath = testRunner.testCase.testSuite.getPropertyValue("CSVFilePath")
+def objCSV = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("csvFileOperations")
+context.csvFileOperations.updatestepresult(CSVReportFilePath)
+</con:tearDownScript><con:properties/></con:testCase><con:properties><con:property><con:name>UserName</con:name><con:value>interfaceuser</con:value></con:property><con:property><con:name>UserPassword</con:name><con:value>interfaceuser8QBP)??</con:value></con:property><con:property><con:name>URL</con:name><con:value>https://tcbqlb.gplm.siemens.com/tcbq10if</con:value></con:property><con:property><con:name>ReportFolderPath</con:name><con:value>C:\SoapUI_Automation/ExecutionReport_25-Jul-2024 10_07</con:value></con:property><con:property><con:name>CSVFilePath</con:name><con:value>C:\SoapUI_Automation/ExecutionReport_25-Jul-2024 10_07/ExecutionReport</con:value></con:property><con:property><con:name>ResponseTime</con:name><con:value>33.008</con:value></con:property><con:property><con:name>ResponseContent</con:name><con:value><![CDATA[<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <SOALogoutResponse xmlns="http://logout.webservice.bt.com/">
+         <return>Successfully Logged out for TC_SESSION_DESCRIMINATOR :</return>
+      </SOALogoutResponse>
+   </S:Body>
+</S:Envelope>]]></con:value></con:property></con:properties></con:testSuite><con:testSuite id="03422b86-2ef6-4be3-9ef1-4b98fd140c60" name="Libraries" disabled="true"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="74329654-086b-4ffe-96c2-a3ceb75493ef" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="commonMethods" searchProperties="true"><con:settings/><con:testStep type="groovy" name="xmlOperations" id="06a3edfc-4616-41ab-8ffe-4bbfb8d3cd38"><con:settings/><con:config><script>import groovy.xml.*
+
+class xmlFileOperations{
+
+	def log;
+	def context;
+	def testRunner;
+	
+	def xmlFileOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;	
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def getxmlNodeValue(sXMLFilePath, sTopNodeName, sSubNodeName){
+		try
+		{		
+			def xmlFile = new File(sXMLFilePath)
+			def xmlString = xmlFile.text		
+			// Parse the XML string
+			def xml = new XmlSlurper().parseText(xmlString)		
+			// Find the NodeDetails element where TopTagDetails matches sTopNodeName
+			def nodeDetails = xml.NodeDetails.find { it.TopTagDetails.text() == sTopNodeName }		
+			// Extract the value of sSubNodeName
+			if (nodeDetails) {
+			    def NodeValue = nodeDetails."$sSubNodeName".text()			    	    
+			} else {
+			    log.error "NodeDetails with TopTagDetails '$sTopNodeName' not found."
+			}
+		}
+		catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def setxmlNodeValue(sXMLFilePath, sTopNodeName, sSubNodeName, sValue){
+		try 
+		{
+	        	def xmlFile = new File(sXMLFilePath)
+			def xmlString = xmlFile.text		
+			// Parse the XML string
+			def xml = new XmlSlurper().parseText(xmlString)		
+			// Find the NodeDetails element where TopTagDetails matches sTopNodeName
+			def nodeDetails = xml.NodeDetails.find { it.TopTagDetails.text() == sTopNodeName }		
+			// Extract the value of sSubNodeName
+			if (nodeDetails) {
+			     nodeDetails."$sSubNodeName".value = sValue  
+			      // Convert XML back to string
+		            def updatedXmlString = XmlUtil.serialize(xml)		            
+		            // Write the updated XML back to the file
+		            xmlFile.text = updatedXmlString		            		            
+			} else {
+			    log.error "NodeDetails with TopTagDetails '$sTopNodeName' not found."
+			}
+	    } 
+	    catch (Exception exc) 
+	    {
+	        log.error "Exception occurred: ${exc.message}"
+	        return null
+	    }
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+context.setProperty("xmlFileOperations", new xmlFileOperations(log, context, testRunner))
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="requestResponseOperations" id="b6a1f872-eab5-4364-b28c-650a85621b2f"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+
+class requestResponseOperations{
+
+	def log;
+	def context;
+	def testRunner;
+
+	def requestResponseOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;	
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def getRequest(sTestStep){
+		try
+		{
+			return sTestStep.getPropertyValue("Request")
+		}
+		catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def getResponse(sTestStep){
+		try
+		{			
+			def Request = new WsdlTestRunContext(sTestStep)
+			def startTime = System.currentTimeMillis()			
+			sTestStep.run(testRunner, Request)			
+			def sResponse=  sTestStep.getPropertyValue("Response")
+			def endTime = System.currentTimeMillis()
+			def totalTime = (endTime - startTime)/1000
+			totalTime = totalTime.toString()
+			testRunner.testCase.testSuite.setPropertyValue("ResponseTime", totalTime)
+			testRunner.testCase.testSuite.setPropertyValue("ResponseContent", sResponse)
+			return sResponse
+		}
+		catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def updateXMLNodeValue(xmlRequestOrResponse, nodeXpath, sNodeValue){
+		try
+		{
+			def tempXML = new XmlHolder(xmlRequestOrResponse)
+			def tempNodeXpath = nodeXpath.split("~")?: []
+			def tempNodeValue = sNodeValue.split("~")?: []
+	
+			if (tempNodeXpath.length != tempNodeValue.length) {
+			    throw new IllegalArgumentException("Node Xpath and Node Value arrays must have the same length.")
+			}
+			
+			for(def iCount =0; iCount&lt;tempNodeXpath.length; iCount++)
+			{
+				tempXML.setNodeValue(tempNodeXpath[iCount], tempNodeValue[iCount])
+			}
+
+			return tempXML.getXml()			
+		}
+		catch(exc)
+		{
+			log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def getXMLNodeValue(xmlRequestOrResponse, nodeXpath){
+		try
+		{			
+			if (nodeXpath == null) {
+			    throw new IllegalArgumentException("Node Xpath required.")
+			}
+	
+			if(xmlRequestOrResponse == null)
+			{
+				throw new IllegalArgumentException("Provided xml content is null.")
+			}
+			def tempXML = new XmlHolder(xmlRequestOrResponse)			
+			return tempXML.getNodeValue(nodeXpath)
+		}
+		catch(exc)
+		{
+			log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	
+}
+
+context.setProperty("requestResponseOperations", new requestResponseOperations(log, context, testRunner))
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="assertions" id="17f11014-8ec2-46a8-8854-a8f174e69d0a"><con:settings/><con:config><script>class assertions{
+	def log;
+	def context;
+	def testRunner;
+
+	def assertions(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;	
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def assertNotNull(sActualInput){		
+		try 
+		{
+		   assert sActualInput != null		   
+		}
+		catch (AssertionError exc) 
+		{		   
+		  log.error "Assertion failed: ${exc.message}"		   
+		}					
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def assertNull(sActualInput){
+		try
+		{
+			assert sActualInput == null			
+		}
+		catch (AssertionError exc) 
+		{
+		 	log.error("Assertion failed: " + exc.toString());	   		
+		}			
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def assertIsEqual(sActual, expected){
+		try
+		{
+			assert sActualInput == expected			
+		}
+		catch (AssertionError exc)
+		{
+			log.error("Assertion failed: " + exc.toString());	 	   		
+		}			
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+context.setProperty("assertions", new assertions(log, context, testRunner))
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="fileFolderOperations" id="1d62e8bf-ad49-4f21-a832-dca54b698c03"><con:settings/><con:config><script>class fileFolderOperations{
+
+	def log;
+	def context;
+	def testRunner;
+
+	def fileFolderOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;	
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def createFolder(sFolderPath, subFolderName){		
+		try
+		{
+			if(sFolderPath == null &amp;&amp; subFolderName == null){	          
+		    		throw new IllegalArgumentException("Folder Path should not be null")			
+	       	}	       			
+		     // Construct the full folder path
+	  		def sFolder = "${sFolderPath}/${subFolderName}"				
+		     // Create a File object for the specified path
+		     def resultFolder = new File(sFolder)	
+		     // Check for existence of folder and create it if it doesn't exist
+		     if(!resultFolder.exists()){
+		         resultFolder.mkdirs()
+		         log.info("Folder created: ${resultFolder.absolutePath}")
+		         return sFolder
+		     }
+		     else
+		     {
+	              log.info("Folder already exists: ${resultFolder.absolutePath}")
+		     } 
+		}
+		catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+	def createTextFile(sFileFolderPath, sFileName, sText){
+		 try
+		 {		 	 
+			 def requestFile = sFileFolderPath+"/"+sFileName+".txt";
+		      def rqfile = new File(requestFile);
+		      rqfile.write(sText, "UTF-8");
+//		      if(!requestFile.exists()){
+//		      	throw new IllegalArgumentException("File "$requestFile" not created")
+//		      }
+		 }
+		 catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}				
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+context.setProperty("fileFolderOperations", new fileFolderOperations(log, context, testRunner))
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="timeDateOperations" id="c81b108e-0c87-4cc0-9a11-334d3f1f9ab9"><con:settings/><con:config><script>class timeDateOperations{
+	def log;
+	def context;
+	def testRunner;
+
+	def timeDateOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;	
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------	
+	def getDateFormat(sDateFormat){
+		try
+		{
+			Date d = new Date();
+	      	def sFormatedDate = d.format(sDateFormat);
+	      	return sFormatedDate
+		}
+		catch(exc)
+		{
+	   		log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+context.setProperty("timeDateOperations", new timeDateOperations(log, context, testRunner))
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="csvFileOperations" id="a930af6c-e8a3-4af0-ab4d-e8b24b43b793"><con:settings/><con:config><script>class csvFileOperations{
+	def log;
+	def context;
+	def testRunner;
+
+	def csvFileOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;		
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	def createCSVFile(sFolderPath, sFileName){		
+		try
+		{
+			def reportFile = new File(sFolderPath, sFileName+".csv");
+		      // Check for existence of report file and create a file
+		      if(!reportFile.exists())
+		      {
+		        reportFile.createNewFile();
+		        // Create required column names in the report file
+		        reportFile.write('"Test Suite","Test Case","Test Step","Step Type","Step Status",'
+		                        +'"Result message","Execution Date",'+'"Response Time (Sec.)",'+'"Execution Time (Sec.)"');
+		      }
+		}
+		catch(exc)
+		{
+			log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	def updatestepresult(sFilePath){
+		try
+		{
+			def reportFile = new File(sFilePath+".csv");
+			for(stepResult in testRunner.getResults())
+			  {
+			   // Retrieve Test Suite name
+			   def testSuite = testRunner.testCase.testSuite.name;
+			   // Retrieve Test Case name
+			   def testCase = testRunner.testCase.name;
+			   // Retrieve Test Step
+			   def testStep = stepResult.getTestStep();
+			   // Retrieve Test Step name
+			   def testStepName = testStep.name
+			   // Retrieve Test Step type
+			   def type = testStep.config.type
+			   // Retrieve Test Step status
+			   def status = stepResult.getStatus()  	
+			   status = status.toString()
+			   def errorMsg = "NA"
+			   if(status == "OK"){
+				status = "PASS"				
+			   }
+			   else
+			   {
+			   	def response = testRunner.testCase.testSuite.getPropertyValue("ResponseContent")
+			   	def startIndex = response.indexOf('&lt;message>')+ '&lt;message>'.length()
+				def endIndex = response.indexOf('&lt;/message>')
+				errorMsg = response.substring(startIndex, endIndex)
+			   }
+	
+			   Date d = new Date();
+		 	   def executionDate = d.format("dd-MMM-yyyy");		 	   
+			   // Creating new line in report file
+			   reportFile.append('\n');
+			
+			   // Write all the necessary information in the file
+			   reportFile.append('"' + testSuite + '",');
+			   reportFile.append('"' + testCase + '",');
+			   reportFile.append('"' + testStepName + '",');
+			   reportFile.append('"' + type + '",');
+			   reportFile.append('"' + status + '",');
+				
+			   // Retrieve the test result messages
+			   reportFile.append('"');	
+			   reportFile.append(errorMsg);
+			   reportFile.append('",');		  
+			   //Write executionDate in the file
+			   reportFile.append('"' + executionDate + '",');		  
+			   def responsetime = testRunner.testCase.testSuite.getPropertyValue("ResponseTime")
+			   reportFile.append('"' + responsetime + '",');		  	   
+			   //write total time required for execution
+			   def totalTimePerStep = stepResult.getTimeTaken(); 
+			   totalTimePerStep = totalTimePerStep/1000
+			   reportFile.append('"' + totalTimePerStep + '",');	
+		  }		 
+			  	     		
+		}
+		 catch(exc)
+		 {
+		    log.error("Exception happened: " + exc.toString());
+		 }
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	
+}
+
+context.setProperty("csvFileOperations", new csvFileOperations(log, context, testRunner))
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="44c6491f-ec66-4b0a-8379-55c75c3898d8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Reporting_Utility" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GenerateCSVReport" id="bb8d0c53-db70-4b7c-9309-c86be8482ed4"><con:settings/><con:config><script>// Try-catch block to handle exceptions
+try {
+
+// 1. Create a "SoapUIResults" folder in the project path 
+      // Retrieve the project root folder
+      def projectPath = new com.eviware.soapui.support.GroovyUtils(context).projectPath
+
+      // Specify a folder inside project root to store the results
+      String folderPath = projectPath + "/SoapUIResults";
+
+      // Create a File object for the specified path
+      def resultFolder = new File(folderPath);
+
+      // Check for existence of folder and create a folder
+      if(!resultFolder.exists())
+      {
+        resultFolder.mkdirs();
+      }
+
+/* ------------------------------------------------------------------------------- */
+
+// 2. Create a subfolder (with timestamp) to store the request-response local copy 
+      // Retrieve the latest execution date-time
+      Date d = new Date();
+      def executionDate = d.format("dd-MMM-yyyy HH_mm");
+
+      // Specify the subfolder path with name Request-Response_CurrentTimeStamp
+      String subfolderPath1 = folderPath+ "/Request-Response_"+executionDate;
+
+      // Create this sub-folder
+      new File(subfolderPath1).mkdirs();
+
+/* ------------------------------------------------------------------------------- */
+
+// 3. Create another subfolder "CSV Reports" to store the reports file 
+      // Specify the subfolder path with name CSV Reports
+      String subfolderPath2 = folderPath+ "/CSV Reports";
+
+      // Create this sub-folder
+      new File(subfolderPath2).mkdirs();
+
+/* ------------------------------------------------------------------------------- */
+
+// 4. Create a Report.csv file inside the CSV Reports folder 
+      // Create a File object for Report csv file (with timestamp)
+      def reportFile = new File(subfolderPath2, "Report_"+executionDate+".csv");
+
+      // Check for existence of report file and create a file
+      if(!reportFile.exists())
+      {
+        reportFile.createNewFile();
+        // Create required column names in the report file
+        reportFile.write('"Test Suite","Test Case","Test Step","Step Type","Step Status",'
+                        +'"Result message","Execution Date",'+'"Execution Time (Sec.)"');
+      }
+/* ------------------------------------------------------------------------------- */
+// 5. Inserting data in the file
+      // Iterate over all the test steps results
+  for(stepResult in testRunner.getResults())
+  {
+    // Retrieve Test Suite name
+   def testSuite = testRunner.testCase.testSuite.name;
+   // Retrieve Test Case name
+   def testCase = testRunner.testCase.name;
+   // Retrieve Test Step
+   def testStep = stepResult.getTestStep();
+   // Retrieve Test Step name
+   def testStepName = testStep.name
+   // Retrieve Test Step type
+   def type = testStep.config.type
+   // Retrieve Test Step status
+   def status = stepResult.getStatus()  	
+   status = status.toString()
+   if(status == "OK"){
+	status = "PASS"
+   }
+   // Creating new line in report file
+   reportFile.append('\n');
+
+   // Write all the necessary information in the file
+   reportFile.append('"' + testSuite + '",');
+   reportFile.append('"' + testCase + '",');
+   reportFile.append('"' + testStepName + '",');
+   reportFile.append('"' + type + '",');
+   reportFile.append('"' + status + '",');
+	
+   // Retrieve the test result messages
+   reportFile.append('"');
+   for(resMessage in stepResult.getMessages())
+   {
+	//To print error message in log
+	def response = stepResult.getResponseContent(); 
+   	def startIndex = response.indexOf('&lt;message>') + '&lt;message>'.length()
+	def endIndex = response.indexOf('&lt;/message>')
+	def errorMsg = response.substring(startIndex, endIndex)	
+     // Write messages and separate multiple messages by new line
+    reportFile.append('Message:'+ errorMsg + '->' + resMessage +'\n');
+
+   }
+   reportFile.append('",');
+
+   //Write executionDate in the file
+   reportFile.append('"' + executionDate + '",');
+   //write total time required for execution
+   def totalTimePerStep = stepResult.getTimeTaken(); 
+   totalTimePerStep = totalTimePerStep/1000
+   reportFile.append('"' + totalTimePerStep + '",');   
+/* ------------------------------------------------------------------------------- */
+// 6. Extract the request and response and save it to external file
+      // Verify if the test step type is request: SOAP project or restrequest: REST project
+	   if((type=="request").or(type=="restrequest"))
+	   {
+	      // Extract the request from the test step
+	      def extRequest = testStep.properties["Request"].value; 
+	      // Create a file in the reports folder and write the request
+	      // Naming convention: request_TestSuiteName_TestCaseName_TestStepName.txt
+	      def requestFile=subfolderPath1+"/request_"+testSuite+"_"+testCase+"_"+testStepName+".txt";
+	      def rqfile = new File(requestFile);
+	      rqfile.write(extRequest, "UTF-8");
+	
+	      // Extract the response from the test step
+	      def extResponse = stepResult.getResponseContent();    
+	      // Create a file in the reports folder and write the response
+	      // Naming convention: response_TestSuiteName_TestCaseName_TestStepName.txt
+	      def responseFile=subfolderPath1+"/response_"+testSuite+"_"+testCase+"_"+testStepName+".txt";
+	      def rsfile = new File(responseFile);
+	      rsfile.write(extResponse, "UTF-8");
+	    }
+   }
+ }
+catch(exc)
+{
+   log.error("Exception happened: " + exc.toString());
+}</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="4a0eeef4-eb3b-4c71-882e-28c0c2013e0a" name="SoapRequests" disabled="true"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8c04ece4-2020-4fd7-b389-acca06ecc704" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_Login" searchProperties="true"><con:settings/><con:testStep type="request" name="TC_Login" id="eb023cf6-a07e-4251-b221-9870e3c80e9d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SOAWebService_LoginUtilSOAP11Binding</con:interface><con:operation>SOALogin</con:operation><con:request name="TC_Login" id="f8c33cf8-295a-4302-9225-24d722cce65a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Login</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://login.webservice.bt.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:SOALogin>
+         <!--Optional:-->
+         <log:SSO_URL/>
+         <!--Optional:-->
+         <log:SSO_APP_ID/>
+         <!--Optional:-->
+         <log:TC_USER>?</log:TC_USER>
+         <!--Optional:-->
+         <log:TC_USER_PASSWD>?</log:TC_USER_PASSWD>
+         <!--Optional:-->
+         <log:TC_SSO_TOKEN/>
+         <!--Optional:-->
+         <log:SOA_URL>?</log:SOA_URL>
+      </log:SOALogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="260ddd2b-3e77-4d4e-a368-a3368e47b6c0"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5b014adc-b78a-4e91-8f84-a47c0e7e506e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_Logout" searchProperties="true"><con:settings/><con:testStep type="request" name="TC_Logout" id="49bd315e-1254-4e5b-8fcb-5a3ab9ed854d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SOAWebService_LogoutUtilSOAP11Binding</con:interface><con:operation>SOALogout</con:operation><con:request name="TC_Logout" id="162a6e33-fd21-493a-a824-e361c7377a6f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://tcbplb.gplm.siemens.com/tcbp10iws/SOAWebService_Logout</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://logout.webservice.bt.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:SOALogout>
+         <!--Optional:-->
+         <log:SSO_URL>?</log:SSO_URL>
+         <!--Optional:-->
+         <log:SSO_APP_ID>?</log:SSO_APP_ID>
+         <!--Optional:-->
+         <log:TC_USER>interfaceuser</log:TC_USER>
+         <!--Optional:-->
+         <log:TC_USER_PASSWD>interfaceuser8QBP)??</log:TC_USER_PASSWD>
+         <!--Optional:-->
+         <log:TC_SSO_TOKEN>?</log:TC_SSO_TOKEN>
+         <!--Optional:-->
+         <log:TC_SESSION_DESCRIMINATOR>?</log:TC_SESSION_DESCRIMINATOR>
+         <!--Optional:-->
+         <log:SOA_URL>https://tcbqlb.gplm.siemens.com/tcbq10if</log:SOA_URL>
+      </log:SOALogout>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="532af63f-5abd-466c-885a-52d4694a8077"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
