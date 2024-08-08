@@ -1,0 +1,24 @@
+<records>
+  <record>
+    <Test_Suite>TestSuite1</Test_Suite>
+    <Test_Case>TC_Login</Test_Case>
+    <Test_Step>TC_Login</Test_Step>
+    <Step_Type>groovy</Step_Type>
+    <Step_Status>PASS</Step_Status>
+    <Result_message>NA</Result_message>
+    <Execution_Date>08-Aug-2024</Execution_Date>
+    <Response_Time>4.736</Response_Time>
+    <Execution_Time>10.446</Execution_Time>
+  </record>
+  <record>
+    <Test_Suite>TestSuite1</Test_Suite>
+    <Test_Case>TC_Logout</Test_Case>
+    <Test_Step>TC_Logout</Test_Step>
+    <Step_Type>groovy</Step_Type>
+    <Step_Status>PASS</Step_Status>
+    <Result_message>NA</Result_message>
+    <Execution_Date>08-Aug-2024</Execution_Date>
+    <Response_Time>4.937</Response_Time>
+    <Execution_Time>10.358</Execution_Time>
+  </record>
+</records>

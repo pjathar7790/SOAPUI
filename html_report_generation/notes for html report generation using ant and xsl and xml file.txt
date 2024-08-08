@@ -13,6 +13,28 @@ download groovy installer:  https://groovy.jfrog.io/ui/native/dist-release-local
 
 groovy modify-junit-report.groovy
 
+###############################
+
+-s:   test suite name
+-r:   enables report generation
+-j:   enables the generation of JUnit-style reports.
+
+
+
+
+#########################
+
+Command line options:
+
+to run test suite only in provided file name:
+	testrunner.bat -s"TestSuite1" "C:\SOAP_UI_Project\TC-Login-soapui-project.xml"
+
+to run single test suite in provided file name and generate .xml result file:
+	testrunner.bat -r -j -f "C:\SOAP_UI_Project\test" -s"TestSuite1" "C:\SOAP_UI_Project\TC-Login-soapui-project.xml"
+
+
+to run test all suites in provided file name and generate .xml result file:
+	testrunner.bat -r -j -f "C:\SOAP_UI_Project\test" "C:\SOAP_UI_Project\TC-Login-soapui-project.xml"
 
 #####################
 
@@ -56,44 +78,10 @@ build file should be like this: C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProject
 
 ######################################################################
 
-To generate such an XML file, you will need to modify your Groovy scripts in SoapUI to collect and write the test step details, including their execution time, into the XML report. Here's an example Groovy script snippet that demonstrates how to capture the execution time of each test step and format it in the desired XML structure:
+Approach 2:
 
-
-
-
-
-import groovy.xml.MarkupBuilder
-
-def testSuite = context.testCase.testSuite
-def xmlFile = new File("path/to/your/result.xml")
-def writer = new StringWriter()
-def xml = new MarkupBuilder(writer)
-
-xml.testsuites {
-  testsuite(errors: testSuite.errorCount, failures: testSuite.failCount, id: 0, name: testSuite.name, package: "New SOAPUI Test Project", tests: testSuite.testCaseCount, time: testSuite.timeTaken) {
-    properties {
-      System.properties.each { key, value ->
-        property(name: key, value: value)
-      }
-    }
-    testSuite.testCases.each { testCase ->
-      testcase(name: testCase.name, classname: "New SOAPUI Test Project", time: testCase.timeTaken) {
-        testCase.testSteps.each { step ->
-          teststep(name: step.name, time: step.timeTaken)
-        }
-        if (testCase.status.toString() == "FAILED") {
-          failure(message: testCase.failMessages.join(', ')) {
-            testCase.errors.each { error ->
-              mkp.yield(error.getMessage())
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-xmlFile.write(writer.toString())
+we can convert .csv file which we are generating in our automation to .xml using groovy script
+then using ant and .xsl file we will convert .xl file to HTML
 
 
 ######################################################################

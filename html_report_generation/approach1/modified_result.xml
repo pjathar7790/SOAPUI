@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="1" id="0" name="TestSuite1" package="New SOAPUI Test Project" tests="8" time="5.532">
+    <testcase name="TestCase1" classname="New SOAPUI Test Project" time="1.234">
+      <teststep name="Step1" time="0.123"/>
+      <teststep name="Step2" time="0.456"/>
+      <teststep name="Step3" time="0.655"/>
+      <!-- Additional test steps -->
+      <failure message="Failure message">Stack trace or detailed error message</failure>
+    </testcase>
+    <testcase name="TestCase2" classname="New SOAPUI Test Project" time="1.789">
+      <teststep name="Step1" time="0.567"/>
+      <teststep name="Step2" time="0.321"/>
+      <teststep name="Step3" time="0.901"/>
+      <!-- Additional test steps -->
+    </testcase>
+  </testsuite>
+    <testsuite errors="0" failures="1" id="0" name="TestSuite2" package="Test Suite2" tests="8" time="5.532">
+    <testcase name="TestCase1" classname="New SOAPUI Test Project" time="1.234">
+      <teststep name="Step1" time="0.123"/>
+      <teststep name="Step2" time="0.456"/>
+      <teststep name="Step3" time="0.655"/>
+      <!-- Additional test steps -->
+      <failure message="Failure message">Stack trace or detailed error message</failure>
+    </testcase>
+    <testcase name="TestCase2" classname="New SOAPUI Test Project" time="1.789">
+      <teststep name="Step1" time="0.567"/>
+      <teststep name="Step2" time="0.321"/>
+      <teststep name="Step3" time="0.901"/>
+      <!-- Additional test steps -->
+    </testcase>
+  </testsuite>
+ </testsuites>

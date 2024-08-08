@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project name="XMLToHTMLReport" basedir="." default="transform">
+    
+    <!-- Define the source XML and the XSLT stylesheet -->
+    <property name="xml.file" value="output.xml"/>
+    <property name="xslt.file" value="report.xsl"/>
+    <property name="output.file" value="report.html"/>
+
+    <!-- Task to transform XML to HTML using XSLT -->
+    <target name="transform">
+        <xslt 
+            in="${xml.file}" 
+            style="${xslt.file}" 
+            out="${output.file}"/>
+    </target>
+    
+</project>
