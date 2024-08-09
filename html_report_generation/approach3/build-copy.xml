@@ -1,0 +1,40 @@
+<project name="GenerateJUnitReport" default="generate-report" basedir=".">
+    <!-- Define properties -->
+    <property name="src.dir" value="." />
+    <property name="output.dir" value="output" />
+    <property name="xml.file" value="output.xml" />
+    <property name="main.xsl.file" value="main.xsl" />
+    <property name="suite.xsl.file" value="suite.xsl" />
+    <property name="case.xsl.file" value="case.xsl" />
+    <property name="html.main.file" value="main.html" />
+    <property name="suiteName" value="TestSuite1" />
+    <property name="caseName" value="TC_Login" />
+
+    <!-- Create output directory -->
+    <target name="prepare">
+        <mkdir dir="${output.dir}" />
+    </target>
+
+    <!-- Generate main report -->
+    <target name="generate-main-report" depends="prepare">
+        <xslt in="${src.dir}/${xml.file}" out="${output.dir}/${html.main.file}" style="${src.dir}/${main.xsl.file}" />
+    </target>
+
+    <!-- Generate Test Suite reports -->
+    <target name="generate-suite-reports" depends="generate-main-report">
+        <xslt in="${src.dir}/${xml.file}" out="${output.dir}/TestSuite1.html" style="${src.dir}/${suite.xsl.file}">
+            <xsl:param name="suiteName" expression="${suiteName}" />
+        </xslt>
+    </target>
+
+    <!-- Generate Test Case reports -->
+    <target name="generate-case-reports" depends="generate-suite-reports">
+        <xslt in="${src.dir}/${xml.file}" out="${output.dir}/TC_Login.html" style="${src.dir}/${case.xsl.file}">
+            <xsl:param name="suiteName" expression="${suiteName}" />
+            <xsl:param name="caseName" expression="${caseName}" />
+        </xslt>
+    </target>
+
+    <!-- Generate all reports -->
+    <target name="generate-report" depends="generate-case-reports" />
+</project>

@@ -1,0 +1,16 @@
+<records>
+  <record>
+    <Test_Suite name='TestSuite1'>
+      <Test_Case name='TC_Login'>
+        <Test_Step name='TC_Login' Step_Type='groovy' Step_Status='PASS' Result_message='NA' Execution_Date='08-Aug-2024' Response_Time='4.736' Execution_Time='10.446' />
+      </Test_Case>
+    </Test_Suite>
+  </record>
+  <record>
+    <Test_Suite name='TestSuite1'>
+      <Test_Case name='TC_Logout'>
+        <Test_Step name='TC_Logout' Step_Type='groovy' Step_Status='PASS' Result_message='NA' Execution_Date='08-Aug-2024' Response_Time='4.937' Execution_Time='10.358' />
+      </Test_Case>
+    </Test_Suite>
+  </record>
+</records>
