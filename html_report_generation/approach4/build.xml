@@ -1,0 +1,20 @@
+<project name="GenerateJUnitReport" default="generate-report" basedir=".">
+
+    <!-- Define properties -->
+    <property name="src.dir" value="." />
+    <property name="output.dir" value="output" />
+    <property name="xml.file" value="output.xml" />
+    <property name="xsl.file" value="report.xsl" />
+    <property name="html.file" value="report.html" />
+
+    <!-- Create output directory -->
+    <target name="prepare">
+        <mkdir dir="${output.dir}" />
+    </target>
+
+    <!-- Transform XML to HTML using XSLT -->
+    <target name="generate-report" depends="prepare">
+        <xslt in="${src.dir}/${xml.file}" out="${output.dir}/${html.file}" style="${src.dir}/${xsl.file}" />
+    </target>
+
+</project>

@@ -1239,24 +1239,24 @@ xml.testsuites {
             }
         }
         testSuite.testCaseList.each { testCase ->
-            def caseTime = 0
+            def caseStartTime = System.currentTimeMillis()
             def caseFailures = 0
 
             // Run the TestCase
-            def testCaseRunner = testCase.run(context, null)
-            def caseResult = testCaseRunner.testCase.testCaseResult
+            def runner = testCase.run(context, false)  // Run the test case
+            def caseResult = runner.status
+            def caseTime = (System.currentTimeMillis() - caseStartTime) / 1000.0 // Time in seconds
 
-            testcase(name: testCase.name, classname: "New SOAPUI Test Project", time: testCaseRunner.getTimeTaken() / 1000.0) {
+            testcase(name: testCase.name, classname: "New SOAPUI Test Project", time: caseTime) {
                 testCase.testStepList.each { step ->
                     def stepStartTime = System.currentTimeMillis()
                     def stepResult = step.run(context)  // Run the test step
-                    def stepEndTime = System.currentTimeMillis()
-                    def stepTime = (stepEndTime - stepStartTime) / 1000.0 // Time in seconds
+                    def stepTime = (System.currentTimeMillis() - stepStartTime) / 1000.0 // Time in seconds
 
                     teststep(name: step.name, time: stepTime) {
                         if (stepResult.status == com.eviware.soapui.model.testsuite.TestStepResult.TestStepStatus.FAILED) {
                             failure(message: stepResult.message) {
-                                mkp.yield(stepResult.error.toString())
+                                mkp.yield(stepResult.error?.toString())
                             }
                             caseFailures++
                         }
@@ -1276,7 +1276,7 @@ xml.testsuites {
             }
 
             failureCount += caseFailures
-            totalTime += testCaseRunner.getTimeTaken() / 1000.0
+            totalTime += caseTime
         }
 
         // Add summary attributes to the testsuite tag

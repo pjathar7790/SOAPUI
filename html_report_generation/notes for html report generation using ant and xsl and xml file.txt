@@ -78,6 +78,15 @@ build file should be like this: C:\Users\z004xtmc\Prathamesh\SOAP_UI\SOAPProject
 
 ######################################################################
 
+Approach 1:
+
+we can convert .csv file which we are generating in our automation to .xml using groovy script
+then using ant and .xsl file we will convert .xl file to HTML.
+Here we dont have any groovy script to convert .csv to .xml file.
+I was just trying to convert .xml file to html report.
+
+######################################################################
+
 Approach 2:
 
 we can convert .csv file which we are generating in our automation to .xml using groovy script
@@ -85,3 +94,18 @@ then using ant and .xsl file we will convert .xl file to HTML
 
 
 ######################################################################
+
+Approach 3:
+
+we can convert .csv file which we are generating in our automation to .xml using groovy script
+then using ant and .xsl file we will convert .xl file to HTML
+Difference between 2nd and 3rd Approach is change in output.xml file structure.
+also changes in build.sml and .xsl file
+
+######################################################################
+
+Approach 4:
+
+we can convert .csv file which we are generating in our automation to .xml using groovy script
+then using ant and .xsl file we will convert .xl file to HTML
+Difference between 2nd and 3rd Approach is change in output.xml file which gets generated after 
