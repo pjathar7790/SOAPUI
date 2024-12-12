@@ -27,22 +27,20 @@
                         <th>Response Time (s)</th>
                         <th>Execution Time (s)</th>
                     </tr>
-                    <xsl:for-each select="record">
-                        <xsl:for-each select="Test_Suite">
-                            <xsl:for-each select="Test_Case">
-                                <xsl:for-each select="Test_Step">
-                                    <tr>
-                                        <td><xsl:value-of select="../@name" /></td>
-                                        <td><xsl:value-of select="../@name" /></td>
-                                        <td><xsl:value-of select="@name" /></td>
-                                        <td><xsl:value-of select="@Step_Type" /></td>
-                                        <td><xsl:value-of select="@Step_Status" /></td>
-                                        <td><xsl:value-of select="@Result_message" /></td>
-                                        <td><xsl:value-of select="@Execution_Date" /></td>
-                                        <td><xsl:value-of select="@Response_Time" /></td>
-                                        <td><xsl:value-of select="@Execution_Time" /></td>
-                                    </tr>
-                                </xsl:for-each>
+                    <xsl:for-each select="record/Test_Suite">
+                        <xsl:for-each select="Test_Case">
+                            <xsl:for-each select="Test_Step">
+                                <tr>
+                                    <td><xsl:value-of select="ancestor::Test_Suite/@name" /></td> <!-- This will pull the Test Suite name -->
+                                    <td><xsl:value-of select="../@name" /></td> <!-- This will pull the Test Case name -->
+                                    <td><xsl:value-of select="@name" /></td>
+                                    <td><xsl:value-of select="@Step_Type" /></td>
+                                    <td><xsl:value-of select="@Step_Status" /></td>
+                                    <td><xsl:value-of select="@Result_message" /></td>
+                                    <td><xsl:value-of select="@Execution_Date" /></td>
+                                    <td><xsl:value-of select="@Response_Time" /></td>
+                                    <td><xsl:value-of select="@Execution_Time" /></td>
+                                </tr>
                             </xsl:for-each>
                         </xsl:for-each>
                     </xsl:for-each>

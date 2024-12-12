@@ -1,0 +1,241 @@
+Database Connection In SOAP UI.
+Here we inserted different values in script to DB.
+
+we used below groovy script.
+
+######################################################
+
+sqlOperation.groovy
+
+
+import groovy.sql.Sql
+import java.sql.DriverManager
+
+class SqlOperation {
+    def log
+    def context
+    def testRunner
+    def dbUrl
+    def dbUser
+    def dbPassword
+    def dbDriver
+    def sql
+
+    SqlOperation(def log, def context, def testRunner) {
+        this.log = log
+        this.context = context
+        this.testRunner = testRunner
+    }
+    
+    def insertDateToDB(String dbUrl, String dbUser, String dbPassword, String dbDriver,String tableName,List<String> data) {
+		try {
+		    // Load the PostgreSQL JDBC driver
+		    Class.forName(dbDriver)
+		    
+		    // Establish the database connectiong
+		    def sql = null
+		    sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+		    
+		    // Insert data into the table xyz
+		    def insertQuery = 'INSERT INTO ' +tableName+ ' (test_suite,test_case,test_step,step_status,result_message,execution_date,response_time,execution_time,step_type) VALUES (?,?,?,?,?,?,?,?,?)'
+		    sql.executeInsert(insertQuery, data)
+		    
+		    log.info "Data inserted successfully..."
+		} catch (Exception e) {
+		    log.error "Error: ${e.message}"
+		} finally {
+		    // Close the database connection
+		    if (sql != null) {
+		        sql.close()
+		        log.info("-....")
+		    }
+		}
+    }
+
+}
+
+// Create an instance of SqlOperation and set it in the context
+def sqlOperation = new SqlOperation(log, context, testRunner)
+context.setProperty("sqloperation", sqlOperation)
+
+
+
+
+
+###########################################################################
+
+csvFileOperations.groovy
+
+
+class csvFileOperations{
+	def log;
+	def context;
+	def testRunner;
+
+	def csvFileOperations(log, context, testRunner){
+		this.log = log;
+		this.context = context;
+		this.testRunner = testRunner;		
+		log.info "INSIDE csvFileOperations constructor"	
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	def createCSVFile(sFolderPath, sFileName){
+		log.info "INSIDE csvFileOperations createCSVFile"		
+		try
+		{
+			def reportFile = new File(sFolderPath, sFileName+".csv");
+		      // Check for existence of report file and create a file
+		      if(!reportFile.exists())
+		      {
+		        reportFile.createNewFile();
+		        // Create required column names in the report file
+		        reportFile.write('"Test Suite","Test Case","Test Step","Step Type","Step Status",'
+		                        +'"Result message","Execution Date",'+'"Response Time",'+'"Execution Time"');
+		      }
+		}
+		catch(exc)
+		{
+			log.error("Exception happened: " + exc.toString());
+	   		return null
+		}
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	def updatestepresult(sFilePath){
+		log.info "INSIDE csvFileOperations updatestepresult"
+		List<String> data = []
+		try
+		{
+			def reportFile = new File(sFilePath+".csv");
+			for(stepResult in testRunner.getResults())
+			  {
+			   // Retrieve Test Suite name
+			   def testSuite = testRunner.testCase.testSuite.name;
+			   // Retrieve Test Case name
+			   def testCase = testRunner.testCase.name;
+			   // Retrieve Test Step
+			   def testStep = stepResult.getTestStep();
+			   // Retrieve Test Step name
+			   def testStepName = testStep.name
+			   // Retrieve Test Step type
+			   def type = testStep.config.type
+			   // Retrieve Test Step status
+			   def status = stepResult.getStatus()  	
+			   status = status.toString()
+			   log.info "STATUS : " + status
+			   def result = testRunner.testCase.getPropertyValue("AssertionResult")
+			   log.info "Result is "+ testStepName + "________"+result
+			   
+			   if(result.contains("FAIL")){
+				status = "FAIL"				
+			   }
+			   else{
+			   	status = "PASS"
+			   }
+//			   else
+//			   {
+//			   	log.info "inside else"
+//			   	def response = testRunner.testCase.testSuite.getPropertyValue("ResponseContent")
+//			   	def startIndex = response.indexOf('<message>')+ '<message>'.length()
+//				def endIndex = response.indexOf('</message>')
+//				errorMsg = response.substring(startIndex, endIndex)
+//				log.info "inside else"
+//			   }
+	
+			   Date d = new Date();
+		 	   def executionDate = d.format("dd-MMM-yyyy");		 	   
+			   // Creating new line in report file
+			   reportFile.append('\n');
+			
+			   // Write all the necessary information in the file
+			   reportFile.append('"' + testSuite + '",');
+			   reportFile.append('"' + testCase + '",');
+			   reportFile.append('"' + testStepName + '",');
+			   reportFile.append('"' + type + '",');
+			   reportFile.append('"' + status + '",');
+				
+			   // Retrieve the test result messages
+			   reportFile.append('"');	
+			   reportFile.append(result);
+			   reportFile.append('",');		  
+			   //Write executionDate in the file
+			   reportFile.append('"' + executionDate + '",');		  
+			   def responsetime = testRunner.testCase.testSuite.getPropertyValue("ResponseTime")
+			   reportFile.append('"' + responsetime + '",');		  	   
+			   //write total time required for execution
+			   def totalTimePerStep = stepResult.getTimeTaken(); 
+			   totalTimePerStep = totalTimePerStep/1000
+			   reportFile.append('"' + totalTimePerStep + '",');	
+			   data.addAll([testSuite,testCase,testStepName,status,result,executionDate,responsetime,totalTimePerStep,type])	
+				return data
+		  }		 
+			  	     		
+		}
+		 catch(exc)
+		 {
+		    log.error("Exception happened: " + exc.toString());
+		 }
+	}
+	////-------------------------------------------------------------------------------------------------------------------------------------------------
+	
+}
+log.info "BEFORE csvFileOperations object creation"
+context.setProperty("csvFileOperations", new csvFileOperations(log, context, testRunner))
+
+
+
+###################################################################
+
+used as below:
+
+import com.eviware.soapui.model.testsuite.TestSuite
+//import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+// Get the project level test suite by name
+def project = testRunner.testCase.testSuite.project
+def objLibrary = project.getTestSuiteByName("Libraries")
+
+def objSqlOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("sqlOperations")
+objSqlOperations.run(testRunner, context)
+
+
+//db connection parameters setup
+def dbUrl = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\DatabaseDetails.xml", "db_details", "DBUrl")
+def dbUser = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\DatabaseDetails.xml", "db_details", "DBUser")
+def dbPassword = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\DatabaseDetails.xml", "db_details", "DBPassword")
+def dbDriver = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\DatabaseDetails.xml", "db_details", "DBDriver")
+def tableName = context.xmlFileOperations.getxmlNodeValue(projectPath+"\\DatabaseDetails.xml", "db_details", "TableName")
+testRunner.testCase.testSuite.setPropertyValue("dbUrl", dbUrl)
+testRunner.testCase.testSuite.setPropertyValue("dbUser", dbUser)
+testRunner.testCase.testSuite.setPropertyValue("dbPassword", dbPassword)
+testRunner.testCase.testSuite.setPropertyValue("dbDriver", dbDriver)
+testRunner.testCase.testSuite.setPropertyValue("tableName", tableName)
+
+
+############
+
+
+def dbdata = context.csvFileOperations.updatestepresult(CSVReportFilePath)
+
+//insert data to db
+log.info('inserting data to db in teardown...')
+def objSqlOperations = objLibrary.getTestCaseByName("commonMethods").getTestStepByName("sqlOperations")
+objSqlOperations.run(testRunner, context)
+def dbUrl = testRunner.testCase.testSuite.getPropertyValue("dbUrl")
+def dbUser = testRunner.testCase.testSuite.getPropertyValue("dbUser")
+def dbPassword = testRunner.testCase.testSuite.getPropertyValue("dbPassword")
+def dbDriver = testRunner.testCase.testSuite.getPropertyValue("dbDriver")
+def tableName = testRunner.testCase.testSuite.getPropertyValue("tableName")
+def sqlInstance = context.getProperty("sqloperation").insertDateToDB(dbUrl, dbUser, dbPassword, dbDriver,tableName,dbdata)
+
+
+
+
+###############################################
+
+
+in order to work this groovy script we need to download PostgreSQL JDBC driver (.jar file) and put it under C:\Program Files\SmartBear\SoapUI-5.7.2\lib
+
+
+we downloaded postgresql-42.7.3.jar from https://jdbc.postgresql.org/download/
+
+################################################

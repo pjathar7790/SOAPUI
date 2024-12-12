@@ -1,0 +1,39 @@
+
+
+Run Failed Test Cases In UFT:
+
+1) read .xlsx file which generated at end of UFT automation execution
+2) insert names of failed test cases to .txt file
+3) read .txt file and form command which will execute failed test cases.
+
+
+
+################################################
+
+1) install java8
+2) install groovy
+3) download jar files:
+		poi-4.1.2.jar
+		poi-ooxml-4.1.2.jar
+		commons-collections4-4.4.jar
+		xmlbeans-3.1.0.jar
+		poi-ooxml-schemas-4.1.2.jar
+		commons-compress-1.20.jar
+
+4) use groovy script in file read_write.groovy file
+5) run groovy script using below command:
+
+groovy -cp "C:\\Users\\z004xtmc\\Prathamesh\\poi-4.1.2.jar;C:\\Users\\z004xtmc\\Prathamesh\\poi-ooxml-4.1.2.jar;C:\\Users\\z004xtmc\\Prathamesh\\commons-collections4-4.4.jar;C:\\Users\\z004xtmc\\Prathamesh\\xmlbeans-3.1.0.jar;C:\\Users\\z004xtmc\\Prathamesh\\poi-ooxml-schemas-4.1.2.jar;C:\\Users\\z004xtmc\\Prathamesh\\commons-compress-1.20.jar" read_write_xlsx.groovy
+
+6) Above script will write failed test cases into FailedTestCases.txt file
+
+7) use groovy script in file read_textfile_and_form_jenkins_pipeline.groovy
+
+8) run this script using command :    groovy read_textfile_and_form_jenkins_pipeline.groovy
+
+9) step 8 will form groovy pipeline which is similar to current pipeline
+
+10) Finally we can run : generated_pipeline.groovy
+
+
+so we need to run 3 groovy scripts
